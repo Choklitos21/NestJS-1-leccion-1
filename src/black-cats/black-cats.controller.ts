@@ -1,26 +1,26 @@
-import { Controller, Delete, Get, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from "@nestjs/common";
 
 @Controller('black-cats')
 export class BlackCatsController {
 
-  @Get()
-  getPoint(){
-    return { nombre: 'get'}
+  @Get('')
+  getPoint(@Query() name){
+    return { endPoint: "get", ...name };
   }
 
   @Post()
-  postPoint(){
-    return { nombre: 'post'}
+  postPoint(@Body() body: {}){
+    return { endpoint: 'post', bodyInfo: {...body} }
   }
 
-  @Put()
-  putPoint(){
-    return { nombre: 'put'}
+  @Put(':param')
+  putPoint(@Param('param') param, @Body() body: {}){
+    return { endpoint: 'put', param, bodyInfo: {...body} }
   }
 
-  @Delete()
-  deletePoint(){
-    return { nombre: 'delete'}
+  @Delete(':param')
+  deletePoint(@Param('param') param){
+    return { endPoint: "delete", param };
   }
 
 }

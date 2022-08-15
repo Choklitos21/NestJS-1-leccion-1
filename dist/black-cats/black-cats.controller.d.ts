@@ -1,14 +1,16 @@
 export declare class BlackCatsController {
-    getPoint(): {
-        nombre: string;
+    getPoint(name: any): any;
+    postPoint(body: {}): {
+        endpoint: string;
+        bodyInfo: {};
     };
-    postPoint(): {
-        nombre: string;
+    putPoint(param: any, body: {}): {
+        endpoint: string;
+        param: any;
+        bodyInfo: {};
     };
-    putPoint(): {
-        nombre: string;
-    };
-    deletePoint(): {
-        nombre: string;
+    deletePoint(param: any): {
+        endPoint: string;
+        param: any;
     };
 }
